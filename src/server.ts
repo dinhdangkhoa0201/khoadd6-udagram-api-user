@@ -34,6 +34,13 @@ import {V0_USER_MODELS} from './controllers/v0/model.index';
     origin: '*',
   }));
 
+  app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:8100");
+    res.header("Access-Control-Allow-Origin", "http://127.0.0.1:64682");
+    res.header("Access-Control-Allow-Header", "Origin, X-Requested-Width, Content-Type, Accept, Authorization");
+    next();
+  })
+
   app.use('/api/v0/', IndexRouter);
 
   // Root URI call
